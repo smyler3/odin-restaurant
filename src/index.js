@@ -1,4 +1,5 @@
 import "./style.css";
 import splashContent from "./splash";
 
-splashContent();
+const content = document.getElementById("content");
+splashContent(content);

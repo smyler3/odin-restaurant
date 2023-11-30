@@ -20,7 +20,7 @@ body {
     width: 60%;
 }
 
-.splash-body {
+.content-body {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -28,10 +28,15 @@ body {
     background-color: wheat;
 }
 
-.title {
+.center-text {
     text-align: center;
 }
 
+/*
+ * ---------------------------------------------------------------
+ * Splash Page Styling
+ * ---------------------------------------------------------------
+ */
 .image-card {
     display: flex;
     justify-content: center;
@@ -45,3 +50,9 @@ body {
 .quote-body {
     font-size: x-large;
 }
+
+/*
+ * ---------------------------------------------------------------
+ * Contact Page Styling
+ * ---------------------------------------------------------------
+ */
