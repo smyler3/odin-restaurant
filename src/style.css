@@ -17,10 +17,14 @@ body {
 
 #content {
     display: flex;
+    width: 60%;
+}
+
+.splash-body {
+    display: flex;
     flex-direction: column;
     gap: 2rem;
     padding: 2rem 4rem;
-    width: 60%;
     background-color: wheat;
 }
 

@@ -4,6 +4,9 @@ import sushiBoat from "./sushi-boat.jpg";
 export default function splashContent() {
     const content = document.getElementById("content");
 
+    const splashBody = document.createElement("div");
+    splashBody.classList.add("splash-body"); 
+
     // The restaurant title
     const title = document.createElement("h1");
     title.textContent = "Surging Sushi";
@@ -38,8 +41,10 @@ export default function splashContent() {
     quote.appendChild(quoter);
 
     // Attaching all content
-    content.appendChild(title);
-    content.appendChild(imageCard);
-    content.appendChild(description);
-    content.appendChild(quote);
+    splashBody.appendChild(title);
+    splashBody.appendChild(imageCard);
+    splashBody.appendChild(description);
+    splashBody.appendChild(quote);
+
+    content.appendChild(splashBody);
 }
