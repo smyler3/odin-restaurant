@@ -25,6 +25,7 @@ body {
     flex-direction: column;
     gap: 2rem;
     padding: 2rem 4rem;
+    width: 100%;
     background-color: wheat;
 }
 
@@ -56,3 +57,56 @@ body {
  * Contact Page Styling
  * ---------------------------------------------------------------
  */
+
+.sub-content {
+    display: grid;
+    grid: 1fr 2fr / 1fr 2fr;
+    gap: 2rem;
+    justify-items: center;
+} 
+
+.contact-info {
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ffffff;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 130px;
+    border-radius: 100%;
+    border: 2px solid #ffffff;
+    overflow: hidden;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
+.hours-info {
+    grid-area: 2 / 1 / -1 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ffffff;
+}
+
+.team-info {
+    grid-area: 1 / 2 / -1 / -1;
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ffffff;
+}
