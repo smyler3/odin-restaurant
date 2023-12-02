@@ -1,7 +1,7 @@
 import sushiBoat from "./sushi-boat.jpg";
 
 /* Creates the splash page content */
-export default function splashContent(content) {
+export default function generateSplashContent(parent) {
     const splashBody = document.createElement("div");
     splashBody.classList.add("content-body"); 
 
@@ -44,5 +44,5 @@ export default function splashContent(content) {
     splashBody.appendChild(description);
     splashBody.appendChild(quote);
 
-    content.appendChild(splashBody);
+    parent.appendChild(splashBody);
 }

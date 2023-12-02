@@ -58,7 +58,7 @@ body {
  * ---------------------------------------------------------------
  */ 
 
-.sub-content {
+.contact-content {
     display: grid;
     grid: 1fr 2fr / 1fr 2fr;
     gap: 2rem;
@@ -149,6 +149,7 @@ body {
 .staff-name {
     border-top: 2px solid #ffffff;
     border-radius: 100%;
+    font-weight: bold;
     text-decoration: underline;
     text-decoration-color: #ffffff;
 }

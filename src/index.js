@@ -1,5 +1,7 @@
 import "./style.css";
-import splashContent from "./splash";
+import generateSplashContent from "./splash";
+import generateContactContent from "./contact";
 
 const content = document.getElementById("content");
-// splashContent(content);
+// generateSplashContent(content);
+generateContactContent(content);
