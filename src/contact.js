@@ -2,6 +2,7 @@ import SailBoat from "./sail-boat.svg";
 import Noodles from "./noodles.svg";
 
 export default function generateContactContent(parent) {
+    /* Create the contact info element */
     function generateContactInfo() {
         const contactInfo = document.createElement("span");
         contactInfo.classList.add("contact-info");
@@ -41,17 +42,9 @@ export default function generateContactContent(parent) {
         contactInfo.appendChild(address);
 
         return contactInfo;
-        //         <span class="contact-info">
-        //             <div class="logos">
-        //                 <img class="logo" src="../src/sail-boat.svg" alt="">
-        //                 <img class="logo" src="../src/noodles.svg" alt="">
-        //             </div>
-        //             <p>0491 572 665</p>
-        //             <p>SurgingSushi@fakeEmail.com</p>
-        //             <p>123 fake street, fakeland</p>
-        //         </span>
     }
 
+    /* Create the opening hours element */
     function generateHoursInfo() {
         /* Creates the opening hours schedule for the restaurant */
         function generateOpeningHours() {
@@ -80,13 +73,6 @@ export default function generateContactContent(parent) {
         
                 hours.appendChild(paragraph);
             });
-
-            // Booking information footnote 
-            const bookingInfo = document.createElement("p");
-            bookingInfo.classList.add("booking-info", "center-text");
-            bookingInfo.textContent = "Please note reservations are limited and essential";
-
-            hours.appendChild(bookingInfo);
         
             return hours;
         }
@@ -98,34 +84,26 @@ export default function generateContactContent(parent) {
         const title = document.createElement("h2");
         title.textContent = "Opening Hours";
 
+        // Booking Information Footnote 
+        const bookingInfo = document.createElement("p");
+        bookingInfo.classList.add("booking-info", "center-text");
+        bookingInfo.textContent = "Please note reservations are limited and essential";
+
         // Opening Hours
         hoursInfo.appendChild(title);
         hoursInfo.appendChild(generateOpeningHours());
+        hoursInfo.appendChild(bookingInfo);
 
         return hoursInfo;
-        //         <span class="hours-info">
-        //             <h2>Opening Hours</h2>
-        //             <div class="hours">
-        //                 <p><b>Monday:</b> Closed</p>
-        //                 <p><b>Tuesday:</b> Closed</p>
-        //                 <p><b>Wednesday:</b> 6PM - 12PM</p>
-        //                 <p><b>Thursday:</b> 6PM - 12PM</p>
-        //                 <p><b>Friday:</b> 4PM - 12PM</p>
-        //                 <p><b>Saturday:</b> 4PM - 12PM</p>
-        //                 <p><b>Sunday:</b> 4PM - 12PM</p>
-        //             </div>
-        //             <div class="booking-info center-text">
-        //                 Please note reservations are limited and essential
-        //             </div>
-        //         </span>
     }
 
+    /* Create the meet the team element */
     function generateTeamInfo() {
         function generateStaffCards(parent) {
             const staff = [
                 {
                     name: "Remy",
-                    nickname: "Little Chef",
+                    nickname: "\"Little Chef\"",
                     blurb: "Remy, the culinary conductor in this exclusive kitchen, has curated a symphony of flavors for the high-dining sushi experience." +
                         "With precision and an artist's touch, he composes a menu that showcases the pinnacle of sushi craftsmanship.",
                     dishes: [
@@ -159,7 +137,14 @@ export default function generateContactContent(parent) {
                 // Name
                 const name = document.createElement("p");
                 name.classList.add("staff-name");
-                name.textContent = `${member.name} ${member.nickname ? `<i>"${member.nickname}"</i>` : ""}`;
+
+                const nameText = document.createTextNode(`${member.name} `);
+                const nickname = document.createElement("i");
+                // If there's no nickname, it remains an empty string
+                nickname.textContent = member.nickname || "";
+
+                name.appendChild(nameText);
+                name.appendChild(nickname);
         
                 // Blurb
                 const blurb = document.createElement("p");
@@ -197,40 +182,23 @@ export default function generateContactContent(parent) {
         generateStaffCards(teamInfo);
 
         return teamInfo;
-        //         <span class="team-info center-text">
-        //             <h2>Meet the Team</h2>
-        //             <div class="staff-card">
-        //                 <div class="staff-name"><p class="name"><b>Remy <i>"Little Chef"</i></b></p></div>
-        //                 <p class="staff-blurb">Remy, the culinary conductor in this exclusive kitchen, has curated a symphony of flavors for the high-dining sushi experience.
-        //                     With precision and an artist's touch, he composes a menu that showcases the pinnacle of sushi craftsmanship.</p>
-        //                 <div class="dishes">
-        //                     <p>Signature Omakase Platter</p>
-        //                     <p>Truffle-Infused Toro Nigiri</p>
-        //                     <p>Uni and Quail Egg Gunkan</p>
-        //                     <p>Foie Gras and Fig Nigiri</p>
-        //                     <p>Soy-Glazed Wagyu Beef Roll</p>
-        //                     <p>Matcha-infused Dessert Sushi</p>
-        //                 </div>
-        //             </div>
-        //             <div class="staff-card">
-        //                 <div class="staff-name"><p class="name"><b>Alfredo Linguini Gusteau</b></p></div>
-        //                 <p class="staff-blurb">Linguini, Remy's aspiring human collaborator, skillfully crafts a supporting ensemble of sides drawing from French and Mediterranean influences.
-        //                     These dishes dance in harmony with Remy's creations, elevating the dining experience to a crescendo of flavors.</p>
-        //                 <div class="dishes">
-        //                     <p>Amuse-Bouche Trio</p>
-        //                     <p>Scallop Ceviche with Citrus</p>
-        //                     <p>Lobster Tail with Herb Butter</p>
-        //                     <p>Electric Eel "Sous Vide"</p>
-        //                 </div>
-        //             </div>
-        //         </span>
+    }
+
+    /* Creates the body of content for the contact page */
+    function generateContactContent() {
+        const contactContent = document.createElement("div");
+        contactContent.classList.add("contact-content");
+    
+        // Adding elements
+        contactContent.appendChild(generateContactInfo());
+        contactContent.appendChild(generateHoursInfo());
+        contactContent.appendChild(generateTeamInfo());
+
+        return contactContent;
     }
 
     const contentBody = document.createElement("div");
     contentBody.classList.add("content-body"); 
-
-    const contactContent = document.createElement("div");
-    contactContent.classList.add("contact-content");
 
     // Page title
     const title = document.createElement("h1");
@@ -238,68 +206,8 @@ export default function generateContactContent(parent) {
     title.classList.add("center-text");
 
     // Adding elements
-    contactContent.appendChild(generateContactInfo());
-    contactContent.appendChild(generateHoursInfo());
-    contactContent.appendChild(generateTeamInfo());
-
-    contentBody.appendChild(contactContent);
+    contentBody.appendChild(title);
+    contentBody.appendChild(generateContactContent());
 
     parent.appendChild(contentBody);
-    // <div class="content-body">
-    //     <h1 class="center-text">Contact Information</h1>
-    //     <div class="sub-content">
-    //         <div class="contact-info">
-    //             <div class="logos">
-    //                 <img class="logo" src="../src/sail-boat.svg" alt="">
-    //                 <img class="logo" src="../src/noodles.svg" alt="">
-    //             </div>
-    //             <p>0491 572 665</p>
-    //             <p>SurgingSushi@fakeEmail.com</p>
-    //             <p>123 fake street, fakeland</p>
-    //         </div>
-    //         <div class="hours-info">
-    //             <h2>Opening Hours</h2>
-    //             <div class="hours">
-    //                 <p><b>Monday:</b> Closed</p>
-    //                 <p><b>Tuesday:</b> Closed</p>
-    //                 <p><b>Wednesday:</b> 6PM - 12PM</p>
-    //                 <p><b>Thursday:</b> 6PM - 12PM</p>
-    //                 <p><b>Friday:</b> 4PM - 12PM</p>
-    //                 <p><b>Saturday:</b> 4PM - 12PM</p>
-    //                 <p><b>Sunday:</b> 4PM - 12PM</p>
-    //             </div>
-    //             <div class="booking-info center-text">
-    //                 Please note reservations are limited and essential
-    //             </div>
-    //         </div>
-    //         <span class="team-info center-text">
-    //             <h2>Meet the Team</h2>
-    //             <div class="staff-card">
-    //                 <div class="staff-name"><p class="name"><b>Remy <i>"Little Chef"</i></b></p></div>
-    //                 <p class="staff-blurb">Remy, the culinary conductor in this exclusive kitchen, has curated a symphony of flavors for the high-dining sushi experience.
-    //                     With precision and an artist's touch, he composes a menu that showcases the pinnacle of sushi craftsmanship.</p>
-    //                 <div class="dishes">
-    //                     <p>Signature Omakase Platter</p>
-    //                     <p>Truffle-Infused Toro Nigiri</p>
-    //                     <p>Uni and Quail Egg Gunkan</p>
-    //                     <p>Foie Gras and Fig Nigiri</p>
-    //                     <p>Soy-Glazed Wagyu Beef Roll</p>
-    //                     <p>Matcha-infused Dessert Sushi</p>
-    //                 </div>
-    //             </div>
-    //             <div class="staff-card">
-    //                 <div class="staff-name"><p class="name"><b>Alfredo Linguini Gusteau</b></p></div>
-    //                 <p class="staff-blurb">Linguini, Remy's aspiring human collaborator, skillfully crafts a supporting ensemble of sides drawing from French and Mediterranean influences.
-    //                     These dishes dance in harmony with Remy's creations, elevating the dining experience to a crescendo of flavors.</p>
-    //                 <div class="dishes">
-    //                     <p>Amuse-Bouche Trio</p>
-    //                     <p>Scallop Ceviche with Citrus</p>
-    //                     <p>Lobster Tail with Herb Butter</p>
-    //                     <p>Electric Eel "Sous Vide"</p>
-    //                 </div>
-    //             </div>
-    //         </span>
-    //     </div>
-    // </div>
-
 }

@@ -2,8 +2,8 @@ import sushiBoat from "./sushi-boat.jpg";
 
 /* Creates the splash page content */
 export default function generateSplashContent(parent) {
-    const splashBody = document.createElement("div");
-    splashBody.classList.add("content-body"); 
+    const contentBody = document.createElement("div");
+    contentBody.classList.add("content-body"); 
 
     // Restaurant title
     const title = document.createElement("h1");
@@ -39,10 +39,10 @@ export default function generateSplashContent(parent) {
     quote.appendChild(quoter);
 
     // Attaching all content
-    splashBody.appendChild(title);
-    splashBody.appendChild(imageCard);
-    splashBody.appendChild(description);
-    splashBody.appendChild(quote);
+    contentBody.appendChild(title);
+    contentBody.appendChild(imageCard);
+    contentBody.appendChild(description);
+    contentBody.appendChild(quote);
 
-    parent.appendChild(splashBody);
+    parent.appendChild(contentBody);
 }
