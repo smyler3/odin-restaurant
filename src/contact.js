@@ -25,10 +25,12 @@ export default function generateContactContent(parent) {
 
         // Contact Number
         const number = document.createElement("p");
+        number.classList.add("number");
         number.textContent = "0491 572 665";
 
         // Contact Email
         const email = document.createElement("p");
+        email.classList.add("email");
         email.textContent = "SurgingSushi@fakeEmail.com"
 
         // Address
