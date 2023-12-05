@@ -115,7 +115,7 @@ body {
     background-color: #000000;
 }
 
-.menu-items {
+.menu-list {
     display: flex;
     flex-direction: column;
     gap: 1rem;
