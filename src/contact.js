@@ -66,14 +66,22 @@ export default function generateContactContent(parent) {
         
             // Creating each individual day's opening hours
             days.forEach(day => {
-                const paragraph = document.createElement("p");
-                const boldText = document.createElement("b");
+                const hoursContainer = document.createElement("div");
+                hoursContainer.classList.add("hoursItem");
+
+                const dayText = document.createElement("p");
+
+                const hoursText = document.createElement("p");
+                hoursText.classList.add("hoursText")
+
+                dayText.textContent = `${day.day}:\u0020`
+                hoursText.textContent = `${day.hours}`
+
+                hoursContainer.appendChild(dayText);
+                hoursContainer.appendChild(document.createTextNode("\u00A0"));
+                hoursContainer.appendChild(hoursText);
         
-                boldText.appendChild(document.createTextNode(`${day.day}:`));
-                paragraph.appendChild(boldText);
-                paragraph.appendChild(document.createTextNode(` ${day.hours}`));
-        
-                hours.appendChild(paragraph);
+                hours.appendChild(hoursContainer);
             });
         
             return hours;
@@ -84,11 +92,12 @@ export default function generateContactContent(parent) {
 
         // Title
         const title = document.createElement("h2");
+        title.classList.add("title");
         title.textContent = "Opening Hours";
 
         // Booking Information Footnote 
         const bookingInfo = document.createElement("p");
-        bookingInfo.classList.add("booking-info", "center-text");
+        bookingInfo.classList.add("booking-info");
         bookingInfo.textContent = "Please note reservations are limited and essential";
 
         // Opening Hours
@@ -173,14 +182,9 @@ export default function generateContactContent(parent) {
         }
 
         const teamInfo = document.createElement("span");
-        teamInfo.classList.add("team-info", "center-text");
-
-        // Title
-        const title = document.createElement("h2");
-        title.textContent = "Meet the Team"
+        teamInfo.classList.add("team-info");
 
         // Adding elements
-        teamInfo.appendChild(title);
         generateStaffCards(teamInfo);
 
         return teamInfo;
@@ -205,7 +209,7 @@ export default function generateContactContent(parent) {
     // Page title
     const title = document.createElement("h1");
     title.textContent = "Contact Information";
-    title.classList.add("center-text");
+    title.classList.add("title");
 
     // Adding elements
     contentBody.appendChild(title);

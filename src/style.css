@@ -1,3 +1,24 @@
+/*
+ * ---------------------------------------------------------------
+ * Custom Colours
+ * ---------------------------------------------------------------
+ */
+:root {
+    --primary: #F9F6F1;
+    --secondary: #FF4081;
+    --tertiary: #880E4F;
+    --title: #590011;
+    --text: #4E342E;
+    --quote: #333333;
+    --border: #D2B48C;
+}
+
+/*
+ * ---------------------------------------------------------------
+ * General Styling
+ * ---------------------------------------------------------------
+ */
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -14,7 +35,8 @@ body {
     align-items: stretch;
     min-height: 100vh;
     min-width: 100vw;
-    background-color: gray;
+    color: var(--text);
+    background-color: var(--primary);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -22,7 +44,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 60%;
-    background-color: wheat;
+    background-color: var(--primary);
 }
 
 #content {
@@ -35,6 +57,11 @@ body {
     gap: 2rem;
     padding: 2rem 4rem;
     width: 100%;
+}
+
+.title {
+    text-align: center;
+    color: var(--title);
 }
 
 .center-text {
@@ -57,13 +84,17 @@ body {
 .browse-tab {
     width: 150px;
     padding: 1rem;
+    color: var(--text);
+    background-color: var(--primary);
+    border: 2px solid var(--border);
+    box-shadow: 0 10px 15px #00000020;
 }
 .browse-tab:hover {
-    
+    color: var(--secondary);
 }
-
 .pressed {
-
+    color: var(--primary);
+    background-color: var(--tertiary);
 }
 
 /*
@@ -79,10 +110,31 @@ body {
 .display-image {
     height: 300px;
     padding: 0 auto;
+    border: 2px solid var(--border);
+    box-shadow: 0 10px 15px #00000020;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    border: 2px solid var(--border);
+    box-shadow: 0 10px 15px #00000020;
+}
+
+.restaurant-description {
+    /* font-weight: lighter; */
+    color: var(--quote);
 }
 
 .quote-body {
     font-size: x-large;
+    color: var(--secondary);
+}
+
+.quoter {
+    color: var(--quote);
 }
 
 /*
@@ -98,21 +150,23 @@ body {
 
 .menu-description {
     padding: 0 5rem;
+    font-weight: lighter;
 }
 
 .menu-subsection-title {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--title);
 }
 
 .menu-subsection-title::before,
 .menu-subsection-title::after {
-    content: '';
     flex-grow: 1;
-    height: 1px;
+    content: '';
     margin: 0 2rem;
-    background-color: #000000;
+    height: 2px;
+    background-color: var(--border);
 }
 
 .menu-list {
@@ -127,6 +181,8 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 0 5rem;
+    font-weight: bold;
+    color: var(--tertiary);
 }
 
 
@@ -157,7 +213,7 @@ body {
     gap: 0.5rem;
     width: 100%;
     padding: 1rem;
-    border: 2px solid #ffffff;
+    border: 2px solid var(--border);
 }
 
 .logos {
@@ -167,13 +223,17 @@ body {
     height: 100px;
     width: 130px;
     border-radius: 100%;
-    border: 2px solid #ffffff;
+    border: 2px solid var(--border);
     overflow: hidden;
 }
 
 .logo {
     height: 60px;
     width: auto;
+}
+
+.number, .email {
+    color: var(--secondary);
 }
 
 .number:hover, .email:hover {
@@ -189,7 +249,7 @@ body {
     align-items: center;
     width: 100%;
     padding: 1rem;
-    border: 2px solid #ffffff;
+    border: 2px solid var(--border);
 }
 
 .hours {
@@ -202,9 +262,18 @@ body {
     padding: 1rem;
 }
 
+.hoursItem {
+    display: flex;
+}
+
+.hoursText {
+    color: var(--secondary);
+}
+
 .booking-info {
     padding: 0 2rem;
     font-size: small;
+    text-align: center;
 }
 
 /*
@@ -216,11 +285,12 @@ body {
 .team-info {
     grid-area: 1 / 2 / -1 / -1;
     display: grid;
-    grid-template-rows: auto repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 1rem;
     width: 100%;
     padding: 1rem;
-    border: 2px solid #ffffff;
+    text-align: center;
+    border: 2px solid var(--border);
 }
 
 .staff-card {
@@ -230,21 +300,23 @@ body {
 }
 
 .staff-name {
-    border-top: 2px solid #ffffff;
+    border-top: 2px solid var(--border);
     border-radius: 100%;
     font-weight: bold;
     text-decoration: underline;
-    text-decoration-color: #ffffff;
+    text-decoration-color: var(--border);
+    color: var(--secondary);
 }
 
 .staff-blurb {
     padding: 0 2rem;
+    font-weight: lighter;
 }
 
 .dishes {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    font-weight: lighter;
-    color: #fd8d8d;
+    font-weight: bold;
+    color: var(--tertiary);
 }

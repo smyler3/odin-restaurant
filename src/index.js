@@ -18,14 +18,23 @@ function createTabListeners() {
     // Change content to the selected tab
     homeTab.addEventListener("click", () => {
         replaceContent(generateSplashContent);
+        homeTab.classList.add("pressed");
+        menuTab.classList.remove("pressed");
+        contactTab.classList.remove("pressed");
     });
 
     menuTab.addEventListener("click", () => {
         replaceContent(generateMenuContent);
+        homeTab.classList.remove("pressed");
+        menuTab.classList.add("pressed");
+        contactTab.classList.remove("pressed");
     })
 
     contactTab.addEventListener("click", () => {
         replaceContent(generateContactContent);
+        homeTab.classList.remove("pressed");
+        menuTab.classList.remove("pressed");
+        contactTab.classList.add("pressed");
     });
 }
 

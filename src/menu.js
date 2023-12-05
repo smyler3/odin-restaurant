@@ -22,6 +22,7 @@ export default function generateMenuContent(parent) {
                 })
             }
 
+            // Names and prices of main dishes
             const mains = [
                 {name: "Signature Omakase Platter", price: "120"},
                 {name: "Truffle-Infused Toro Nigiri", price: "25"},
@@ -31,6 +32,7 @@ export default function generateMenuContent(parent) {
                 {name: "Matcha-Infused Dessert Sushi Platter", price: "40"},
             ]
 
+            // Names and prices of side dishes
             const sides = [
                 {name: "Amuse-Bouche Trio", price: "30"},
                 {name: "Scallop Ceviche with Citrus", price: "35"},
@@ -88,7 +90,7 @@ export default function generateMenuContent(parent) {
     // Title
     const title = document.createElement("h1");
     title.textContent = "Menu";
-    title.classList.add("center-text");
+    title.classList.add("title");
 
     // Adding Content
     contentBody.appendChild(title);
