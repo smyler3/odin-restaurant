@@ -13,14 +13,14 @@ function createTabListeners() {
     const contactTab = document.getElementById("contact-tab");
 
     // Change content to the selected tab
-    homeTab.addEventListener("click", function () {
+    homeTab.addEventListener("click", () => {
         replaceContent(generateSplashContent)
     });
-    contactTab.addEventListener("click", function () {
+    contactTab.addEventListener("click", () => {
         replaceContent(generateContactContent)
     });
 }
 
 const content = document.getElementById("content");
 createTabListeners();
-generateSplashContent(content);
+// generateSplashContent(content);

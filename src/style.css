@@ -87,6 +87,51 @@ body {
 
 /*
  * ---------------------------------------------------------------
+ * Menu Page Styling
+ * ---------------------------------------------------------------
+ */ 
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.menu-description {
+    padding: 0 5rem;
+}
+
+.menu-subsection-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-subsection-title::before,
+.menu-subsection-title::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    margin: 0 2rem;
+    background-color: #000000;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    width: 100%;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5rem;
+}
+
+
+/*
+ * ---------------------------------------------------------------
  * Contact Page Styling
  * ---------------------------------------------------------------
  */ 
