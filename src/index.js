@@ -5,6 +5,14 @@ import generateMenuContent from "./menu";
 
 /* Allow navigating page content with tabs at top of page */
 function createTabListeners() {
+    /* Checks if the clicked element has already been clicked */
+    function checkClicked(e) {
+        if (e.target.classList.contains("pressed")) {
+            return true;
+        }
+        return false;
+    }
+    
     /* Replaces the current page content with the given content */
     const replaceContent = function (contentFunction) {
         content.replaceChildren();
@@ -16,25 +24,31 @@ function createTabListeners() {
     const contactTab = document.getElementById("contact-tab");
 
     // Change content to the selected tab
-    homeTab.addEventListener("click", () => {
+    homeTab.addEventListener("click", (e) => {
         replaceContent(generateSplashContent);
-        homeTab.classList.add("pressed");
-        menuTab.classList.remove("pressed");
-        contactTab.classList.remove("pressed");
+        if (checkClicked(e)) {
+            homeTab.classList.add("pressed");
+            menuTab.classList.remove("pressed");
+            contactTab.classList.remove("pressed");
+        }
     });
 
-    menuTab.addEventListener("click", () => {
+    menuTab.addEventListener("click", (e) => {
         replaceContent(generateMenuContent);
-        homeTab.classList.remove("pressed");
-        menuTab.classList.add("pressed");
-        contactTab.classList.remove("pressed");
+        if (checkClicked(e)) {
+            homeTab.classList.remove("pressed");
+            menuTab.classList.add("pressed");
+            contactTab.classList.remove("pressed");
+        }
     })
 
-    contactTab.addEventListener("click", () => {
+    contactTab.addEventListener("click", (e) => {
         replaceContent(generateContactContent);
-        homeTab.classList.remove("pressed");
-        menuTab.classList.remove("pressed");
-        contactTab.classList.add("pressed");
+        if (checkClicked(e)) {
+            homeTab.classList.remove("pressed");
+            menuTab.classList.remove("pressed");
+            contactTab.classList.add("pressed");
+        }
     });
 }
 
