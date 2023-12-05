@@ -70,6 +70,27 @@ body {
 
 /*
  * ---------------------------------------------------------------
+ * Shared Styling
+ * ---------------------------------------------------------------
+ */
+/* Creates a text divider around these elements */
+.text-divider,
+.menu-subsection-title {
+    display: flex;
+    align-items: center;
+}
+.text-divider::before,
+.text-divider::after,
+.menu-subsection-title::before,
+.menu-subsection-title::after {
+    flex-grow: 1;
+    content: '';
+    height: 2px;
+    background-color: var(--border);
+}
+
+/*
+ * ---------------------------------------------------------------
  * Browsing Tab Styling
  * ---------------------------------------------------------------
  */
@@ -111,7 +132,6 @@ body {
     height: 300px;
     padding: 0 auto;
     border: 2px solid var(--border);
-    box-shadow: 0 10px 15px #00000020;
 }
 
 .text-container {
@@ -120,12 +140,18 @@ body {
     gap: 2rem;
     padding: 2rem;
     border: 2px solid var(--border);
-    box-shadow: 0 10px 15px #00000020;
 }
 
 .restaurant-description {
     /* font-weight: lighter; */
     color: var(--quote);
+}
+
+.text-divider::before {
+    margin: 0 0 0 20rem;
+}
+.text-divider::after {
+    margin: 0 20rem 0 0;
 }
 
 .quote-body {
@@ -154,19 +180,13 @@ body {
 }
 
 .menu-subsection-title {
-    display: flex;
-    align-items: center;
     justify-content: center;
     color: var(--title);
 }
 
 .menu-subsection-title::before,
 .menu-subsection-title::after {
-    flex-grow: 1;
-    content: '';
     margin: 0 2rem;
-    height: 2px;
-    background-color: var(--border);
 }
 
 .menu-list {

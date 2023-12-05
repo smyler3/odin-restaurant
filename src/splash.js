@@ -32,6 +32,9 @@ export default function generateSplashContent(parent) {
     "Our commitment is to craft not just dishes, but a symphony of flavors that tantalize your taste buds and transport you to culinary bliss. Each ingredient is carefully selected, and every dish is a celebration of the finest Japanese cuisine with a touch of global inspiration. " +
     "As you embark on this culinary journey, savor each bite, appreciate the artistry, and let the gentle flow of our sushi boats enhance the magic of your dining experience."
 
+    const divider = document.createElement("p");
+    divider.classList.add("text-divider");
+
     // Headline quote
     const quote = document.createElement("p");
     const quoteBody = document.createElement("i");
@@ -46,6 +49,7 @@ export default function generateSplashContent(parent) {
     quote.appendChild(quoter);
 
     textContainer.appendChild(description);
+    textContainer.appendChild(divider);
     textContainer.appendChild(quote);
 
     // Attaching all content
