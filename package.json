@@ -1,17 +1,16 @@
 {
   "name": "odin-restaurant",
   "version": "1.0.0",
-  "description": "",
+  "description": "A tabbed resteraunt page created using JavaScript and webpack",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/smyler3/odin-restaurant.git"
   },
-  "author": "",
+  "author": "smyler3",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/smyler3/odin-restaurant/issues"
